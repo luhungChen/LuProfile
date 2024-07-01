@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">Profile</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a id="information-basic" #information_basic class="nav-item nav-link active" (click)="informationbasic(information_basic,work_experience,degree,technique)"  [routerLink]="['/information-basic']">基本資訊</a>
+      </li>
+      <li class="nav-item">
+        <a id="work-experience" #work_experience class="nav-item nav-link" (click)="workexperience(information_basic,work_experience,degree,technique)" [routerLink]="['/work-experience']">工作經驗</a>
+      </li>    
+      <li class="nav-item dropdown">
+        <a id="degree" #degree class="nav-item nav-link" (click)="degrees(information_basic,work_experience,degree,technique)" [routerLink]="['/degree-information']">學歷</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" #technique id="technique" data-bs-toggle="dropdown" aria-expanded="false" (click)="technique_toggleDropdown()">專業技能</a>
+        <ul class="dropdown-menu" [class.show]="tech_isOpen" aria-labelledby="technique">
+          <li><a class="dropdown-item" #program_language (click)="technique_selectItem(program_language,information_basic,work_experience,degree,technique,project_experience)">程式語言</a></li>
+          <li><a class="dropdown-item" #cloud_technique (click)="technique_selectItem(cloud_technique,information_basic,work_experience,degree,technique,project_experience)">雲端技術</a></li>
+          <li><a class="dropdown-item" #database (click)="technique_selectItem(database,information_basic,work_experience,degree,technique,project_experience)">資料庫</a></li>
+          <li><a class="dropdown-item" #machine_learning (click)="technique_selectItem(machine_learning,information_basic,work_experience,degree,technique,project_experience)">深度學習相關</a></li>
+          <li><a class="dropdown-item" #crawl (click)="technique_selectItem(crawl,information_basic,work_experience,degree,technique,project_experience)">網路爬蟲相關</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" #project_experience id="project_experience" data-bs-toggle="dropdown" aria-expanded="false" (click)="project_experience_toggleDropdown()">專案經歷</a>
+        <ul class="dropdown-menu" [class.show]="experi_isOpen" aria-labelledby="project_experience">
+          <li><a class="dropdown-item" #web_api (click)="project_experience_selectItem(cloud_technique,information_basic,work_experience,degree,technique,project_experience)">WEB API</a></li>
+          <li><a class="dropdown-item" #website (click)="project_experience_selectItem(website,information_basic,work_experience,degree,technique,project_experience)">網頁</a></li>
+          <li><a class="dropdown-item" #generative_ai (click)="project_experience_selectItem(generative_ai,information_basic,work_experience,degree,technique,project_experience)">生成式AI</a></li>
+          <li><a class="dropdown-item" #machine_learning_related (click)="project_experience_selectItem(machine_learning_related,information_basic,work_experience,degree,technique,project_experience)">深度學習專案</a></li>
+          <li><a class="dropdown-item" #crawl_related (click)="project_experience_selectItem(crawl_related,information_basic,work_experience,degree,technique,project_experience)">網路爬蟲專案</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet><router-outlet />

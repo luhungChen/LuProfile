@@ -1,0 +1,44 @@
+<div class="modal" #infoModal id="infoModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title">內容</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <p *ngFor="let showinfomation of showinfomations; index as i">{{i+1}}. {{showinfomation.content}}</p>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+    </div>
+  </div>
+</div>
+<div style="width:100%;padding:10%">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+           <td class="col-4  text-center border-dark "><font size="5">名字</font></td>
+           <td class="col-8  text-center border-dark"><font size="5">{{data[0].Name}}</font></td>
+        </tr>
+        <tr>
+         <td class="col-4  text-center border-dark"><font size="5">年齡</font></td>
+         <td class="col-8  text-center border-dark"><font size="5">{{data[0].age}}</font></td>
+      </tr>
+        <tr>
+           <td class="col-4  text-center border-dark"><font size="5">性別</font></td>
+           <td class="col-8  text-center border-dark"><font size="5">{{data[0].Gender}}</font></td>
+        </tr>
+        <tr>
+            <td class="col-4  text-center border-dark"><font size="5">興趣</font></td>
+            <td class="col-8  text-center border-dark"><button class="btn btn-info" (click)="show_info(infoModal,data[0].Hobby)">瀏覽內容</button></td>
+         </tr>
+         <tr>
+          <td class="col-4  text-center border-dark"><font size="5">個人專業證照</font></td>
+          <td class="col-8  text-center border-dark"><button class="btn btn-info" (click)="show_info(infoModal,data[0].Cer)">瀏覽內容</button></td>
+       </tr>
+      </tbody>
+    </table>
+</div>

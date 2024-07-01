@@ -1,0 +1,37 @@
+<div class="modal" #infoModal id="infoModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">工作內容</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p *ngFor="let showinfomation of showinfomations; index as i">{{i+1}}. {{showinfomation.content}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="width:100%;padding:10%">
+    <table class="table table-bordered table-hover">
+      <thead>
+            <tr>
+              <th class="col-6 text-center border-dark">公司名稱</th>
+              <th class="col-4 text-center border-dark">職位</th>
+              <th class="col-2 text-center border-dark">職位工作內容</th>
+            </tr>
+      </thead>
+      <tbody *ngFor="let datum of data">
+        <tr>
+           <td class="col-6  text-center border-dark "><font size="6">{{datum.company_name}}</font></td>
+           <td class="col-4  text-center border-dark"><font size="6">{{datum.job_position}}</font></td>
+           <td class="col-2  text-center border-dark"><button class="btn btn-info" (click)="show_info(infoModal,datum.job_content)">瀏覽工作內容</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
