@@ -8,17 +8,40 @@
          </button>
        </div>
        <div class="modal-body">
-         <p *ngFor="let showinfomation of showinfomations; index as i">{{i+1}}. {{showinfomation.content}}</p>
-       </div>
+         <div *ngFor="let showinfomation of showinfomations; index as i">{{i+1}}. {{showinfomation.content}}
+         <br>
+         @if (showinfomation.content!="打桌球" && showinfomation.content!="慢跑")
+         {
+         <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="{{showinfomation.name}}">
+              <button class="accordion-button btn btn-info" type="button" (click)="toggleAccordion(i)" [attr.aria-expanded]="isAccordionOpen(1)">
+                觀看 {{showinfomation.name}} 證照圖片
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" [class.show]="isAccordionOpen(i)" [attr.aria-labelledby]="showinfomation.name">
+              <div class="accordion-body">
+                    <img src="{{showinfomation.filename}}" width="75%"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        }
+         </div>
+        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
        </div>
     </div>
   </div>
 </div>
+
 <div style="width:100%;padding:10%">
     <table class="table table-bordered table-hover">
       <tbody>
+        <tr>
+          <td colspan="2" class="col-12  text-center border-dark "><img src="assets/certification/headshot.png" width="200" height="200"/></td>
+       </tr>
         <tr>
            <td class="col-4  text-center border-dark "><font size="5">名字</font></td>
            <td class="col-8  text-center border-dark"><font size="5">{{data[0].Name}}</font></td>
